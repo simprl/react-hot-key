@@ -1,5 +1,5 @@
 {
-  "name": "react-hot-key",
+  "name": "@simprl/react-hot-keys",
   "version": "0.0.1",
   "description": "react hook and component for subscribe to hot keys",
   "main": "lib/index.js",
@@ -34,6 +34,9 @@
   ],
   "author": "simprl",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/simprl/react-hot-key/issues"
   },
