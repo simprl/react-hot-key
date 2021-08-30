@@ -1,0 +1,65 @@
+{
+  "name": "react-hot-key",
+  "version": "0.0.1",
+  "description": "react hook and component for subscribe to hot keys",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "dts/index.d.ts",
+  "files": [
+    "lib",
+    "es",
+    "dts"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc && rollup -c rollup.config.js",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simprl/react-hot-key.git"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "hotkey",
+    "hotkeys",
+    "hot",
+    "key",
+    "keys",
+    "path",
+    "use",
+    "useHotKey",
+    "HotKey"
+  ],
+  "author": "simprl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simprl/react-hot-key/issues"
+  },
+  "homepage": "https://github.com/simprl/react-hot-key#readme",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@open-wc/building-rollup": "^1.10.0",
+    "@types/jest": "^27.0.1",
+    "@types/react": "^17.0.11",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/redux": "^3.6.0",
+    "babel-jest": "^27.0.6",
+    "deepmerge": "^4.2.2",
+    "jest": "^27.0.6",
+    "react-test-renderer": "^17.0.2",
+    "redux": "^4.1.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.33.3",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "use-constant-handler": "^0.0.3"
+  }
+}
