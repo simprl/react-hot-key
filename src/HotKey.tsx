@@ -1,13 +1,18 @@
-import React, {useContext, useEffect } from 'react';
+import React, {useContext, useEffect, FC } from 'react';
 import { useConstant } from 'use-constant-handler';
 import { Context } from './Context';
 
-interface HotKeyProps {
+/**
+ * HotKey properties.
+ */
+interface Props {
+	/** if selector return true then onKey handler will call */
 	selector: (e: KeyboardEvent) => boolean;
+	/** HotKey handler */
 	onKey: () => void;
 }
 
-const HotKey: React.FC<HotKeyProps> = ({ selector, onKey }) => {
+export const HotKey: FC<Props> = ({ selector, onKey }) => {
 	const onKeyDown = useConstant((e: KeyboardEvent) => {
 		selector && onKey && selector(e) && onKey();
 	});
@@ -21,5 +26,3 @@ const HotKey: React.FC<HotKeyProps> = ({ selector, onKey }) => {
 	}, []);
 	return null;
 };
-
-export default HotKey;

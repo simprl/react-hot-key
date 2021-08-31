@@ -54,7 +54,7 @@ export const HotKeysProvider: React.FC<HotKeysProviderProps> = ({ children, shar
 	<Provider value={useHotKeysContainer(shards)}>{children}</Provider>
 );
 
-const HotKeysContainer: React.FC<HotKeysContainerProps> = ({ children, className, shards }) => {
+export const HotKeysContainer: React.FC<HotKeysContainerProps> = ({ children, className, shards }) => {
 	const ref = useRef(null);
 	const allShards = useMemo(() => (shards ? [...shards, ref] : [ref]), [shards, ref]);
 	return (
