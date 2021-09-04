@@ -14,7 +14,10 @@ interface Props {
 
 export const HotKey: FC<Props> = ({ selector, onKey }) => {
 	const onKeyDown = useConstant((e: KeyboardEvent) => {
-		selector && onKey && selector(e) && onKey();
+		const selected = selector && selector(e)
+		selected && onKey();
+		console.log(selected)
+		return selected;
 	});
 	const listeners = useContext(Context);
 	useEffect(() => {

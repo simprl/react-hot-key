@@ -5,7 +5,17 @@ export const subscribe = (shards: Array<React.RefObject<HTMLElement> | HTMLEleme
     const pressedKeys = new Set<string>();
     const keyDownHandler = (e: KeyboardEvent) => {
         if (!pressedKeys.has(e.code)) {
-            listeners.forEach((listener) => listener.onKeyDown(e));
+            let fired = false
+            listeners.forEach(({onKeyDown}) => {
+                if(onKeyDown && onKeyDown(e)) {
+                    fired = true;
+                }
+            });
+            if(!fired) {
+                listeners.forEach(({ parent }) => {
+                    parent && parent(e);
+                });
+            }
             pressedKeys.add(e.code);
         }
         e.stopPropagation();

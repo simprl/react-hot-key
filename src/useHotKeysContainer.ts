@@ -9,13 +9,23 @@ export const useHotKeysContainer = (shards?: Array<React.RefObject<HTMLElement>|
 
     const parentListeners = useContext(Context);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        parentListeners.forEach((listener) => listener.onKeyDown(e));
+    const parent = useCallback((e: KeyboardEvent) => {
+        let fired = false
+        parentListeners.forEach(({onKeyDown}) => {
+            if(onKeyDown && onKeyDown(e)) {
+                fired = true;
+            }
+        });
+        if(!fired) {
+            parentListeners.forEach(({ parent }) => {
+                parent && parent(e);
+            });
+        }
     }, [parentListeners]);
 
     useEffect(() => {
         if(propagate) {
-            const listener = { onKeyDown };
+            const listener = { parent };
             listeners.add(listener);
             return () => {
                 listeners.delete(listener);

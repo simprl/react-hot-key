@@ -54,7 +54,7 @@ module.exports = {
             },
         ],
     },
-    resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css'] },
+    resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'] },
     // plugins: [
     //     new webpack.ProvidePlugin({
     //         process: 'process/browser',

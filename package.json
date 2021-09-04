@@ -1,6 +1,6 @@
 {
   "name": "@simprl/react-hot-keys",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "react hook and component for subscribe to hot keys",
   "main": "lib/index.js",
   "module": "es/index.js",
