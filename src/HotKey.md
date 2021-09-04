@@ -1,26 +1,28 @@
-HotKey component example (with additional dom elements):
-
+HotKey component example  (press ESC)
 ```jsx
 import { useMemo, useState } from "react";
-import { HotKey, HotKeysContainer, KeySelector } from "@simprl/react-hot-keys";
+import { HotKey, Keys } from "@simprl/react-hot-keys";
 
 const [ v, setV ] = useState(0);
 
-<HotKeysContainer shards={useMemo(() => [{current: document.body}], [])} >
-    Press Esc {v}
-    <HotKey selector={KeySelector.ESC} onKey={() => setV((state)=> state + 1)} />
-</HotKeysContainer>
+;<>
+    ESC counter: {v} 
+    <HotKey selector={Keys.ESC} onKey={() => setV((state)=> state + 1)} />
+</>
 ```
 
-HotKey component example (without additional dom elements):
-```jsx
+
+Custom KeySelector:
+```tsx
 import { useMemo, useState } from "react";
-import { HotKey, HotKeysContainer, KeySelector } from "@simprl/react-hot-keys";
+import { HotKey, Keys, KeySelector } from "@simprl/react-hot-keys";
 
 const [ v, setV ] = useState(0);
+const delSelector = (e) => e.key === 'Delete';
 
-<HotKeysContainer >
-    Click for set focus and then Press Esc {v}
-    <HotKey selector={KeySelector.ESC} onKey={() => setV((state)=> state + 1)} />
-</HotKeysContainer>
+;<>
+    counter: {v} 
+    <div>Press DEL</div>
+    <HotKey selector={delSelector} onKey={() => setV((state)=> state + 1)} />
+</>
 ```

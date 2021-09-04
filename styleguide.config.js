@@ -3,6 +3,10 @@ const pkg = require('./package.json');
 
 module.exports = {
     title: `${pkg.name} v${pkg.version}`,
+    ribbon: {
+        url: 'https://github.com/simprl/react-hot-key',
+        text: 'GitHub'
+    },
     usageMode: 'expand',
     exampleMode: 'expand',
     moduleAliases: {

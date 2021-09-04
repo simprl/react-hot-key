@@ -10,8 +10,26 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /\.(s?)css$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: true
+                        }
+                    }
+                ],
+                include: /\.module\.css$/
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ],
+                exclude: /\.module\.css$/
             },
             {
                 test: /\.(png|jpg|jpeg|webp|gif)$/,
@@ -36,10 +54,10 @@ module.exports = {
             },
         ],
     },
-    resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'] },
-    plugins: [
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
-        }),
-    ],
+    resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css'] },
+    // plugins: [
+    //     new webpack.ProvidePlugin({
+    //         process: 'process/browser',
+    //     }),
+    // ],
 };

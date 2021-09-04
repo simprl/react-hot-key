@@ -1,6 +1,6 @@
 {
   "name": "@simprl/react-hot-keys",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react hook and component for subscribe to hot keys",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -57,8 +57,10 @@
     "@types/react": "^17.0.11",
     "@types/react-test-renderer": "^17.0.1",
     "@types/redux": "^3.6.0",
+    "autoprefixer": "^10.3.4",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
     "deepmerge": "^4.2.2",
     "gh-pages": "^3.2.3",
     "jest": "^27.0.6",
@@ -70,8 +72,12 @@
     "redux": "^4.1.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.33.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "style-loader": "^3.2.1",
     "typescript": "^4.3.4",
-    "webpack": "^4.46.0"
+    "webpack": "^5.52.0"
   },
   "dependencies": {
     "use-constant-handler": "^0.0.3"

@@ -1,5 +1,6 @@
 import { HotKey } from './HotKey';
-import HotKeysContainer, { HotKeysProvider } from './HotKeysContainer';
-import * as KeySelector from './KeySelector';
+import { HotKeysContainer } from './HotKeysContainer';
+import { KeySelector } from './Listener';
+import * as Keys from './Keys';
 
-export { HotKey, HotKeysContainer, HotKeysProvider, KeySelector };
+export { HotKey, HotKeysContainer, Keys, KeySelector };
