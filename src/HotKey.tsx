@@ -1,6 +1,5 @@
-import React, {useContext, useEffect, FC } from 'react';
-import { useConstant } from 'use-constant-handler';
-import { Context } from './Context';
+import React, { FC } from 'react';
+import { useHotKey } from "./useHotKey";
 
 /**
  * HotKey properties.
@@ -13,19 +12,6 @@ interface Props {
 }
 
 export const HotKey: FC<Props> = ({ selector, onKey }) => {
-	const onKeyDown = useConstant((e: KeyboardEvent) => {
-		const selected = selector && selector(e)
-		selected && onKey();
-		console.log(selected)
-		return selected;
-	});
-	const listeners = useContext(Context);
-	useEffect(() => {
-		const listener = { onKeyDown };
-		listeners.add(listener);
-		return () => {
-			listeners.delete(listener);
-		};
-	}, []);
+	useHotKey(selector, onKey);
 	return null;
 };

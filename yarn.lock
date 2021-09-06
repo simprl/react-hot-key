@@ -8607,10 +8607,10 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-use-constant-handler@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/use-constant-handler/-/use-constant-handler-0.0.3.tgz#2e9fd873bdc264af56cf6f890979ea097d3359f2"
-  integrity sha512-VDiiNNZkYX6a3dH7rryJzZ1jVzGAVrDYNTZNPVXP8cenWZdp/7mTDL7wxYqtO8qhjMmfO8kjI5MqKgxBA3dW+Q==
+use-constant-handler@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/use-constant-handler/-/use-constant-handler-0.1.6.tgz#4c7bdf45c510243a9985e3f922e326e68d49808a"
+  integrity sha512-lIXtzTXMyfQJEsTlrl+suOkkKuGqZsWLOPS26hVdJEg2E6edOXBqZ+HW30OHjy1JmU7HOBvnMT4H34ezeXusQw==
 
 use@^3.1.0:
   version "3.1.1"
