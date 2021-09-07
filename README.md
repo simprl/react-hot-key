@@ -1,22 +1,26 @@
 # @simprl/react-hot-keys
-React hook and react component for subscribe to hot keys
 
 [![](https://img.shields.io/npm/l/@simprl/react-hot-keys.svg?style=flat)](https://github.com/simprl/react-hot-key/blob/main/LICENSE)
 [![](https://img.shields.io/npm/v/@simprl/react-hot-keys.svg?style=flat)](https://www.npmjs.com/package/@simprl/react-hot-keys)
 
-[Demo](https://simprl.github.io/react-hot-key/)
+React **hook** and react **component** for subscribe to **hotkeys**
+
+Support React Context API.
+
+### [HotKeys examples Demo](https://simprl.github.io/react-hot-key/)
 
 # Usage
 
-### HotKey component
+### Component HotKey
 ```tsx
 import { HotKey, Keys, KeySelector } from "@simprl/react-hot-keys";
 
-const customSelector: KeySelector = (e) => e.key === 'Delete';
+// with typescript:
+// const customSelector: KeySelector = (e) => e.key === 'Delete';
+
+const customSelector = (e) => e.key === 'Delete';
 
 const Component = ({onExit, onEvent}) => {
-    useHotKey(Keys.ESC, onExit);
-    useHotKey(customSelector, onEvent);
     return <>
         <HotKey selector={Keys.ESC} onKey={onExit} />
         <HotKey selector={customSelector} onKey={onEvent} />
@@ -25,11 +29,14 @@ const Component = ({onExit, onEvent}) => {
 }
 ```
 
-## useHotKey component
+### Hook useHotKey
 ```tsx
 import { useHotKey, Keys, KeySelector } from "@simprl/react-hot-keys";
 
-const customSelector: KeySelector = (e) => e.key === 'Delete';
+// with typescript:
+// const customSelector: KeySelector = (e) => e.key === 'Delete';
+
+const customSelector = (e) => e.key === 'Delete';
 
 const Component = ({onExit, onEvent}) => {
     useHotKey(Keys.ESC, onExit);
@@ -38,7 +45,7 @@ const Component = ({onExit, onEvent}) => {
 }
 ```
 
-### HotKeysContainer component
+### Component HotKeysContainer
 ```jsx
 import { HotKey, HotKeysContainer, Keys } from "@simprl/react-hot-keys";
 

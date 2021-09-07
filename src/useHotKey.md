@@ -1,4 +1,4 @@
-HotKey component example  (press ESC)
+useHotKey hook example  (press ESC)
 ```jsx
 import { useMemo, useState } from "react";
 import { useHotKey, Keys } from "@simprl/react-hot-keys";
@@ -14,7 +14,7 @@ useHotKey(Keys.ESC, () => setV((state)=> state + 1));
 Custom KeySelector:
 ```tsx
 import { useMemo, useState } from "react";
-import { HotKey, Keys, KeySelector } from "@simprl/react-hot-keys";
+import { useHotKey, Keys, KeySelector } from "@simprl/react-hot-keys";
 
 const [ v, setV ] = useState(0);
 const delSelector = (e) => e.key === 'Delete';
