@@ -69,10 +69,10 @@ import { HotKey, HotKeysContainer, Keys } from "@simprl/react-hot-keys";
        ....
 </HotKeysContainer>
 ```
-# How it wark
+# How it work
 
 1. HotKeysContainer render a div and subscribe to keyboard events. Also it make React Context.
-2. Only HotKeysContainer that has focus receive event.
+2. HotKeysContainer receive event only if it has focus.
 3. If keyboard event happen then will check all HotKey components and useHotKey hooks inside react context.
 4. If selector return true then onKey handler call.
 5. If none handler call and property propagate is true, then process parent HotKeysContainer.
