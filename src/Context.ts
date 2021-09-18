@@ -1,9 +1,11 @@
 import React from 'react';
 import Listener from './Listener';
-import {subscribe} from './subscribe';
+import { ClearFunc, subscribe } from './subscribe';
 
-const rootListeners = new Set<Listener>()
-subscribe([document.body], rootListeners);
+const rootListeners = new Set<Listener>();
+const subscribeRoot = (
+  shards: Array<React.RefObject<HTMLElement> | HTMLElement> = [document.body]
+): ClearFunc => subscribe(shards, rootListeners);
 const Context = React.createContext(rootListeners);
 const { Provider } = Context;
-export { Context, Provider };
+export { Context, Provider, subscribeRoot };

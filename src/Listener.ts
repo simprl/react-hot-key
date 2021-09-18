@@ -1,12 +1,12 @@
 interface Listener {
-	onKeyDown?: KeyboardEventHandler;
-	parent?: KeyboardEventHandler<void>;
+  onKeyDown?: KeyboardEventHandler;
+  parent?: KeyboardEventHandler<void>;
 }
 export interface KeyboardEventHandler<RetT = boolean> {
-	(e: KeyboardEvent): RetT;
+  (e: KeyboardEvent): RetT;
 }
 export interface KeySelector {
-	(e: KeyboardEvent): boolean;
+  (e: KeyboardEvent): boolean;
 }
 
 export default Listener;

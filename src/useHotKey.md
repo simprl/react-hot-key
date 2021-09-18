@@ -1,4 +1,10 @@
-useHotKey hook example  (press ESC)
+### Init root listener:
+```js static
+import { subscribeRoot } from '@simprl/react-hot-keys';
+subscribeRoot();
+```
+
+### useHotKey hook example  (press ESC)
 ```jsx
 import { useMemo, useState } from "react";
 import { useHotKey, Keys } from "@simprl/react-hot-keys";
@@ -11,7 +17,7 @@ useHotKey(Keys.ESC, () => setV((state)=> state + 1));
 ```
 
 
-Custom KeySelector:
+### Custom KeySelector:
 ```tsx
 import { useMemo, useState } from "react";
 import { useHotKey, Keys, KeySelector } from "@simprl/react-hot-keys";

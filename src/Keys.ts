@@ -1,4 +1,4 @@
-import {KeySelector} from "./Listener";
+import { KeySelector } from './Listener';
 
 export const DELETE: KeySelector = (e) => e.key === 'Delete';
 export const ENTER: KeySelector = (e) => e.key === 'Enter';

@@ -1,4 +1,4 @@
-HotKeysContainer make handler context and block click handlers of the parent HotKeysContainer
+### HotKeysContainer make handler context and block click handlers of the parent HotKeysContainer
 ```jsx
 import { useMemo, useState } from "react";
 import { HotKey, HotKeysContainer, Keys } from "@simprl/react-hot-keys";
@@ -36,7 +36,7 @@ const [ propagate, setPropagate ] = useState(false);
 ```
 
 
-Container with additional dom elements:
+### Container with additional dom elements:
 
 ```jsx
 import { useMemo, useState } from "react";

@@ -11,6 +11,14 @@ Support React Context API.
 
 # Usage
 
+### Init root listener:
+```js static
+import { subscribeRoot } from '@simprl/react-hot-keys';
+subscribeRoot();
+// or  subscribeRoot([el1, el2]);
+```
+But it's better to use HotKeysContainer instead
+
 ### Component HotKey
 ```tsx
 import { HotKey, Keys, KeySelector } from "@simprl/react-hot-keys";
@@ -61,4 +69,10 @@ import { HotKey, HotKeysContainer, Keys } from "@simprl/react-hot-keys";
        ....
 </HotKeysContainer>
 ```
-# API
+# How it wark
+
+1. HotKeysContainer render a div and subscribe to keyboard events. Also it make React Context.
+2. Only HotKeysContainer that has focus receive event.
+3. If keyboard event happen then will check all HotKey components and useHotKey hooks inside react context.
+4. If selector return true then onKey handler call.
+5. If none handler call and property propagate is true, then process parent HotKeysContainer.
