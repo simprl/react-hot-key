@@ -57,7 +57,7 @@ const Component = ({onExit, onEvent}) => {
 ```jsx
 import { HotKey, HotKeysContainer, Keys } from "@simprl/react-hot-keys";
 
-....
+...
 
 <HotKeysContainer >
     <HotKey selector={Keys.ESC} onKey={() => setV((state)=> state + 1)} />
@@ -69,10 +69,18 @@ import { HotKey, HotKeysContainer, Keys } from "@simprl/react-hot-keys";
        ....
 </HotKeysContainer>
 ```
+
+By default HotKeysContainer is a div element with style = `{ width: 100%; height: 100%; }`
+You can set your own styles:
+```jsx
+<HotKeysContainer className = "myClassName" >
+  ...
+</HotKeysContainer>
+```
 # How it work
 
 1. HotKeysContainer render a div and subscribe to keyboard events. Also it make React Context.
-2. HotKeysContainer receive event only if it has focus.
-3. If keyboard event happen then will check all HotKey components and useHotKey hooks inside react context.
+2. HotKeysContainer receive event only if it or children DOM elements has focus.
+3. If keyboard event happen then check all HotKey components and useHotKey hooks inside react context.
 4. If selector return true then onKey handler call.
 5. If none handler call and property propagate is true, then process parent HotKeysContainer.
