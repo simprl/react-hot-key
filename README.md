@@ -11,14 +11,6 @@ Support React Context API.
 
 # Usage
 
-### Init root listener:
-```js static
-import { subscribeRoot } from '@simprl/react-hot-keys';
-subscribeRoot();
-// or  subscribeRoot([el1, el2]);
-```
-But it's better to use HotKeysContainer instead
-
 ### Component HotKey
 ```tsx
 import { HotKey, Keys, KeySelector } from "@simprl/react-hot-keys";

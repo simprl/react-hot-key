@@ -1,16 +1,16 @@
 import {
-  useCallback, useContext, useEffect, useMemo,
+  useCallback, useContext, useEffect, useMemo, RefObject,
 } from 'react';
-import HotKeyListener from './Listener';
-import { subscribe } from './subscribe';
 import { Context } from './Context';
+import { Listeners } from './Listeners';
+
+const empty = [] as HTMLElement[];
 
 export const useHotKeysContainer = (
-  shards?: Array<React.RefObject<HTMLElement>| HTMLElement>,
+  shards?: (RefObject<HTMLElement>| HTMLElement)[],
   propagate?: boolean
-): Set<HotKeyListener> => {
-  const listeners = useMemo(() => new Set<HotKeyListener>(), []);
-  useEffect(() => (shards ? subscribe(shards, listeners) : undefined), [shards, listeners]);
+): Listeners => {
+  const listeners = useMemo(() => new Listeners(shards ?? empty), [shards]);
 
   const parentListeners = useContext(Context);
 

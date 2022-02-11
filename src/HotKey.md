@@ -1,9 +1,3 @@
-### Init root listener:
-```js static
-import { subscribeRoot } from '@simprl/react-hot-keys';
-subscribeRoot();
-```
-
 ### HotKey component example  (press ESC)
 
 ```jsx
