@@ -1,6 +1,6 @@
 {
   "name": "@simprl/react-hot-keys",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "react hook and component for subscribe to hot keys",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -14,9 +14,7 @@
     "build": "rimraf dist && tsc && rollup -c rollup.config.js",
     "styleguidist": "styleguidist server",
     "styleguidist_build": "styleguidist build",
-    "deploy": "styleguidist build&&gh-pages -d styleguide",
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "deploy": "styleguidist build&&gh-pages -d styleguide"
   },
   "repository": {
     "type": "git",

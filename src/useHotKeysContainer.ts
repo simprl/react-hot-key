@@ -3,6 +3,7 @@ import {
 } from 'react';
 import { Context } from './Context';
 import { Listeners } from './Listeners';
+import { KeyboardEventHandler } from './Listener';
 
 const empty = [] as HTMLElement[];
 
@@ -14,7 +15,7 @@ export const useHotKeysContainer = (
 
   const parentListeners = useContext(Context);
 
-  const parent = useCallback((e: KeyboardEvent) => {
+  const parent = useCallback<KeyboardEventHandler>((e) => {
     let fired = false;
     parentListeners.forEach(({ onKeyDown }) => {
       if (onKeyDown && onKeyDown(e)) {
@@ -23,11 +24,12 @@ export const useHotKeysContainer = (
     });
     if (!fired) {
       parentListeners.forEach((parentListener) => {
-        if (parentListener.parent) {
-          parentListener.parent(e);
+        if (parentListener.parent && parentListener.parent(e)) {
+          fired = true;
         }
       });
     }
+    return fired;
   }, [parentListeners]);
 
   useEffect(() => {

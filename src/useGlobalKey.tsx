@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useConstFunc } from 'use-constant-handler';
-import { Context } from './Context';
+import { globalListeners } from './subscribe';
 import { KeyboardEventHandler } from './Listener';
 
-export const useHotKey = (
+export const useGlobalKey = (
   selector: (e: KeyboardEvent) => boolean,
   onKey: () => void
 ): void => {
@@ -14,12 +14,11 @@ export const useHotKey = (
     }
     return selected;
   });
-  const listeners = useContext(Context);
+
   useEffect(() => {
-    const listener = { onKeyDown };
-    listeners.add(listener);
+    globalListeners.add(onKeyDown);
     return () => {
-      listeners.delete(listener);
+      globalListeners.delete(onKeyDown);
     };
-  }, [listeners, onKeyDown]);
+  }, [onKeyDown]);
 };

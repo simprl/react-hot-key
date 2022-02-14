@@ -1,8 +1,8 @@
-import { FC } from 'react';
-import { useHotKey } from './useHotKey';
+import { VFC } from 'react';
+import { useGlobalKey } from './useGlobalKey';
 
 /**
- * HotKey properties.
+ * GlobalKey properties.
  */
 interface Props {
   /** if selector return true then onKey handler will call */
@@ -11,7 +11,7 @@ interface Props {
   onKey: () => void;
 }
 
-export const HotKey: FC<Props> = ({ selector, onKey }) => {
-  useHotKey(selector, onKey);
+export const GlobalKey: VFC<Props> = ({ selector, onKey }) => {
+  useGlobalKey(selector, onKey);
   return null;
 };

@@ -8,3 +8,4 @@ export const ARROW_DOWN: KeySelector = (e) => e.key === 'ArrowDown';
 export const ARROW_LEFT: KeySelector = (e) => e.key === 'ArrowLeft';
 export const ARROW_RIGHT: KeySelector = (e) => e.key === 'ArrowRight';
 export const SPACE: KeySelector = (e) => e.key === ' ';
+export const SAVE: KeySelector = (e) => e.key === 's' && e.ctrlKey;
