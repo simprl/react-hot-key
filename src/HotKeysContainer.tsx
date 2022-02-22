@@ -20,7 +20,6 @@ export const HotKeysContainer: FC<HotKeysContainerProps> = ({
 }) => {
   const ref = useRef(null);
   const allShards = useMemo(() => (shards ? [...shards, ref] : [ref]), [shards, ref]);
-  console.log(shards);
   return (
     <div ref={ref} className={className ?? style.container} role="presentation" tabIndex={-1}>
       <HotKeysProvider shards={allShards} propagate={propagate}>{children}</HotKeysProvider>
