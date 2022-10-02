@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from './Context';
 import { useHotKeysContainer } from './useHotKeysContainer';
 
-interface HotKeysProviderProps {
+export interface HotKeysProviderProps {
     children: React.ReactNode;
     propagate?: boolean;
     shards?: Array<React.RefObject<HTMLElement> | HTMLElement>;
