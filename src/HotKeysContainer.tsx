@@ -1,4 +1,6 @@
-import React, { useMemo, useRef, FC } from 'react';
+import React, {
+  useMemo, useRef, ReactNode, ReactElement,
+} from 'react';
 import { HotKeysProvider } from './HotKeysProvider';
 import style from './style.module.css';
 
@@ -13,11 +15,12 @@ interface HotKeysContainerProps {
   propagate?: boolean;
   /** additional dom elements or refs that wait for click */
   shards?: Array<React.RefObject<HTMLElement> | HTMLElement>;
+  children?: ReactNode | undefined;
 }
 
-export const HotKeysContainer: FC<HotKeysContainerProps> = ({
+export const HotKeysContainer = ({
   children, className, shards, propagate,
-}) => {
+}: HotKeysContainerProps): ReactElement => {
   const ref = useRef(null);
   const allShards = useMemo(() => (shards ? [...shards, ref] : [ref]), [shards, ref]);
   return (

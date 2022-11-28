@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { useHotKey } from './useHotKey';
 
 /**
@@ -11,7 +10,7 @@ interface Props {
   onKey: () => void;
 }
 
-export const HotKey: FC<Props> = ({ selector, onKey }) => {
+export const HotKey = ({ selector, onKey }: Props): null => {
   useHotKey(selector, onKey);
   return null;
 };
