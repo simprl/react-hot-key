@@ -15,7 +15,7 @@ export class Listeners extends Set<Listener> {
   public add(listener: Listener): this {
     const result = super.add(listener);
     if (this.size === 1) {
-      subscribe(this.shards, this);
+      this.clearListeners = subscribe(this.shards, this);
     }
     return result;
   }
@@ -24,6 +24,7 @@ export class Listeners extends Set<Listener> {
     const result = super.delete(listener);
     if (this.size === 0 && this.clearListeners !== undefined) {
       this.clearListeners();
+      this.clearListeners = undefined;
     }
     return result;
   }
