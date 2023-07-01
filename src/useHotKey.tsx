@@ -5,7 +5,7 @@ import { KeyboardEventHandler } from './Listener';
 
 export const useHotKey = (
   selector: (e: KeyboardEvent) => boolean,
-  onKey: () => void
+  onKey: () => void | boolean
 ): void => {
   const onKeyDown = useConstFunc<KeyboardEventHandler>((e) => {
     const selected = selector && selector(e);

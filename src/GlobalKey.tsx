@@ -7,8 +7,8 @@ import { useGlobalKey } from './useGlobalKey';
 interface Props {
   /** if selector return true then onKey handler will call */
   selector: (e: KeyboardEvent) => boolean;
-  /** HotKey handler */
-  onKey: () => void;
+  /** HotKey handler. if function return false then key press propagate */
+  onKey: () => void | boolean;
 }
 
 export const GlobalKey: VFC<Props> = ({ selector, onKey }) => {
