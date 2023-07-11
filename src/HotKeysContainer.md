@@ -62,20 +62,23 @@ const [v, setV] = useState(0);
 const delSelector = (e) => e.key === 'Delete';
 
 ;<>
-  counter D: {d}
-  <div>
-    <HotKey selector={delSelector} onKey={() => {
-      setV(0);
-      setD((state) => state + 1);
-    }}/>
+  <HotKeysContainer propagate={false}>
+    counter D: {d}
+    <br/>
     counter V: {v}
-    <HotKeysContainer propagate={true}>
-      <div>Click this line and Press DEL</div>
+    <div>
       <HotKey selector={delSelector} onKey={() => {
-        if (v > 9) return false; // button click processing is propagate UP
-        setV((state) => state + 1);
+        setV(0);
+        setD((state) => state + 1);
       }}/>
-    </HotKeysContainer>
-  </div>
+      <HotKeysContainer propagate={true}>
+        <div>Click this line and Press DEL</div>
+        <HotKey selector={delSelector} onKey={() => {
+          if (v > 9) return false; // button click processing is propagate UP
+          setV((state) => state + 1);
+        }}/>
+      </HotKeysContainer>
+    </div>
+  </HotKeysContainer>
 </>
 ```

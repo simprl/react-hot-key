@@ -10,7 +10,7 @@ export const useHotKey = (
   const onKeyDown = useConstFunc<KeyboardEventHandler>((e) => {
     const selected = selector && selector(e);
     if (selected) {
-      onKey();
+      return onKey() ?? selected;
     }
     return selected;
   });
