@@ -74,7 +74,7 @@ const delSelector = (e) => e.key === 'Delete';
       <HotKeysContainer propagate={true}>
         <div>Click this line and Press DEL</div>
         <HotKey selector={delSelector} onKey={() => {
-          if (v > 9) return false; // button click processing is propagate UP
+          if (v >= 9) return false; // button click processing is propagate UP
           setV((state) => state + 1);
         }}/>
       </HotKeysContainer>
