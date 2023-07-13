@@ -51,3 +51,34 @@ const shards = useMemo(() => [{current: document.body}], [])
 </HotKeysContainer>
 ```
 
+### HotKeysContainer propagate & onKey propagate:
+
+```tsx
+import { useMemo, useState } from "react";
+import { HotKey, Keys, KeySelector, HotKeysContainer, HotKeysProvider } from "@simprl/react-hot-keys";
+
+const [d, setD] = useState(0);
+const [v, setV] = useState(0);
+const delSelector = (e) => e.key === 'Delete';
+
+;<>
+  <HotKeysContainer propagate={false}>
+    counter D: {d}
+    <br/>
+    counter V: {v}
+    <div>
+      <HotKey selector={delSelector} onKey={() => {
+        setV(0);
+        setD((state) => state + 1);
+      }}/>
+      <HotKeysContainer propagate={true}>
+        <div>Click this line and Press DEL</div>
+        <HotKey selector={delSelector} onKey={() => {
+          if (v >= 9) return false; // button click processing is propagate UP
+          setV((state) => state + 1);
+        }}/>
+      </HotKeysContainer>
+    </div>
+  </HotKeysContainer>
+</>
+```

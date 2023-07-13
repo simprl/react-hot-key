@@ -6,8 +6,8 @@ import { useHotKey } from './useHotKey';
 interface Props {
   /** if selector return true then onKey handler will call */
   selector: (e: KeyboardEvent) => boolean;
-  /** HotKey handler */
-  onKey: () => void;
+  /** HotKey handler. if function return false then key press propagate */
+  onKey: () => void | boolean;
 }
 
 export const HotKey = ({ selector, onKey }: Props): null => {
